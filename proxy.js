@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const API_KEY = "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";
+const API_KEY = "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";
 
 app.post("/api/claude", async (req, res) => {
   const userMessage = req.body.message;
