@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Cotorra Visual Novel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+
+    <div class="main-area">
+      <div class="character-area">
+        <img id="characterImage" src="images/normal.png" alt="Personaje" />
+      </div>
+
+      <div class="chat-box" id="chatBox">
+        <!-- Mensajes aquí -->
+         <div id="typingIndicator" style="display:none; font-style: italic; color: gray;">Ana está escribiendo...</div>
+      </div>
+
+      
+
+    </div>
+
+    <div class="input-area">
+      <input type="text" id="playerInput" placeholder="Lánzale la cotorra..." onkeydown="handleKey(event)" />
+      <button onclick="sendMessage()">Enviar</button>
+    </div>
+
+    <div class="action-area">
+  <button onclick="openActionModal()">Generar acción</button>
+</div>
+
+    <div class="love-meter">
+      <div class="love-fill" id="loveFill"></div>
+    </div>
+
+  </div>
+
+  <!-- Modal -->
+<div id="actionModal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h3>Selecciona una acción:</h3>
+    <select id="actionSelect">
+      <option value="">-- Escoge una acción --</option>
+      <option value="*Le regalas una flor*">Dar una flor</option>
+      <option value="*La invitas a salir a cenar*">Invitarla a salir</option>
+      <option value="*Le propones una noche de tragos y risas*">Noche de bebida</option>
+      <option value="*La invitas a pasar la noche en tu casa*">Invitarla a tu casa</option>
+      <option value="*Le compras un detalle sorpresa*">Comprarle un presente</option>
+      <option value="*Le preparas una comida casera con cariño*">Cocinarle en tu casa</option>
+      <option value="*Le mandas un mensaje romántico en una nota escrita a mano*">Carta romántica</option>
+      <option value="*Le mandas una canción que te recuerda a ella*">Enviar una canción</option>
+    </select>
+    <div style="margin-top: 10px;">
+      <button onclick="insertSelectedAction()">Insertar</button>
+      <button onclick="closeActionModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <script src="game.js"></script>
+</body>
+</html>
