@@ -2,17 +2,20 @@ import express from "express";
 import cors from "cors";
 import fetch from "node-fetch";
 import path from "path";
+import dotenv from "dotenv";
 import { fileURLToPath } from "url";
 
+dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const API_KEY = "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";
+const API_KEY = process.env.CLAUDE_API_KEY;
 
 app.post("/api/claude", async (req, res) => {
   const userMessage = req.body.message;
